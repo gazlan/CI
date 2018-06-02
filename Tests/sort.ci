@@ -1,0 +1,55 @@
+/****************************************************************************************************
+
+	Copyright (C) 2015 Ashwin Jha and Durgesh Singh
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+	Bubble sort program.
+
+	@author		Ashwin Jha<ajha.dev@gmail.com>
+
+*****************************************************************************************************/
+
+void swap(int* x, int* y) {
+	int temp;
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+void sort(int* arr, int sz) {
+	int x, y;
+	for(x=0; x < sz; x = x+1) {
+		for(y=0; y < sz-1; y=y+1) {
+			if(arr[y] > arr[y+1]) {
+				swap(&arr[y], &arr[y+1]);
+			}
+		}
+	}
+}
+
+int main() {
+	int i;
+	int x = 15, y = 20;
+	int z[10] = {1,4,5,2,6,7,3,0,9,8};
+	printf("Before sorting:\n");
+	for(i = 0; i < 10; i = i+1) printf("%d\t",z[i]);
+	printf("\n");
+	sort(z, 10);
+	printf("After sorting:\n");
+	for(i = 0; i < 10; i = i+1) printf("%d\t",z[i]);
+	printf("\n");
+	return 0;
+}

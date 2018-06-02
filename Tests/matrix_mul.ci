@@ -1,0 +1,54 @@
+/****************************************************************************************************
+
+	Copyright (C) 2015 Ashwin Jha and Durgesh Singh
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+	Matrix multiplication.
+
+	@author		Ashwin Jha<ajha.dev@gmail.com>
+
+*****************************************************************************************************/
+
+int a[3][4] = {{1,2,3,4},{3,2,1,5},{2,3,4,6}};
+int b[4][3] = {{8,7,4},{6,4,5},{12,3,4},{9,3,2}};
+
+int main() {
+	int i, j, k;
+	int c[3][3];
+	int** d;
+	for(i = 0; i < 3; i = i+1) {
+		for(j = 0; j < 3; j = j+1) {
+			c[i][j] = 0;
+			for(k = 0; k < 4; k = k+1) {
+				c[i][j] += a[i][k] * b[k][j];
+			}
+		}
+	}
+	d = c;
+	for(i = 0; i < 3; i = i+1) {
+		for(j = 0; j < 3; j = j+1) {
+			printf("%d\t", c[i][j]);
+		}
+		printf("\n\n");
+	}
+	for(i = 0; i < 3; i = i+1) {
+		for(j = 0; j < 3; j = j+1) {
+			printf("%d\t", d[i][j]);
+		}
+		printf("\n\n");
+	}
+	return 0;
+}

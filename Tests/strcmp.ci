@@ -1,0 +1,59 @@
+/****************************************************************************************************
+
+   Copyright (C) 2015 Ashwin Jha and Durgesh Singh
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+   String comparison.
+
+   @author     Ashwin Jha<ajha.dev@gmail.com>
+
+*****************************************************************************************************/
+
+int strlen(char* s) {
+   int i;
+   for(i = 0; s[i] != '\0'; i = i + 1);
+   return i;
+}
+
+int strcmp(char* s1, char* s2) {
+   int i = 0;
+   int x = strlen(s1);
+   int y = strlen(s2);
+   while(s1[i] != '\0' || s2[i] != '\0') {
+      if(s1[i] != s2[i]) {
+         return (s1[i] - s2[i]);
+      }
+      i = i+1;
+   }
+   return 0;
+}
+
+int main() {
+   int b;
+   char a[7] = {'d','u','r','g','\0'};
+   char d[8] = {'d','u','r','g','e','s','h','\0'};
+
+   if ((b = strcmp(a,d)) == 0) 
+   {
+      printf("Given strings are equal\t%d\n", b);
+   }
+   else 
+   {
+      printf("Given strings are not equal\t%d\n", b);
+   }
+   
+   return 0;
+}
